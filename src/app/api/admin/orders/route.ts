@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
-
+type OrderItem = {
+  id: number | string;
+  name: string;
+  quantity: number;
+  price: number;
+};
 export const POST = async (req: NextRequest) => {
   try {
     const { customer, items, totalPrice } = await req.json()
@@ -26,7 +31,7 @@ export const POST = async (req: NextRequest) => {
         <p><b>Notes:</b> ${customer.notes}</p>
         <h3>Products:</h3>
         <ul>
-          ${items.map((item: any) => `<li>${item.name} x${item.quantity} - $${item.price}</li>`).join('')}
+          ${(items as OrderItem[]).map((item) => `<li>${item.name} x${item.quantity} - $${item.price}</li>`).join('')}
         </ul>
         <p><b>Total Price:</b> $${totalPrice}</p>
       `,

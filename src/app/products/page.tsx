@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ShoppingCart, Plus, Check, RefreshCw, AlertCircle } from 'lucide-react';
 import useSWR from 'swr';
+import Image from 'next/image';
 import { useCart } from '@/contexts/CartContext';
 import './ProductList.css';
 
@@ -190,7 +191,7 @@ export default function ProductList() {
               aria-labelledby={`product-${product.id}-name`}
             >
               <div className="product-image-container">
-                <img 
+                <Image 
                   src={product.imageUrl} 
                   alt={product.name}
                   className="product-image"

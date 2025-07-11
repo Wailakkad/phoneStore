@@ -341,22 +341,22 @@ export default function HomePage() {
         
         {/* Background assets for parallax */}
         <div className="footer-bg-asset footer-asset-1">
-          <img src="/headphones.png" alt="Headphones" />
+          <Image src="/headphones.png" alt="Headphones" />
         </div>
         <div className="footer-bg-asset footer-asset-2">
-          <img src="/iphone-white.png" alt="iPhone White" />
+          <Image src="/iphone-white.png" alt="iPhone White" />
         </div>
         <div className="footer-bg-asset footer-asset-3">
-          <img src="/airpods.png" alt="AirPods" />
+          <Image src="/airpods.png" alt="AirPods" />
         </div>
         <div className="footer-bg-asset footer-asset-4">
-          <img src="/apple-watch-red.png" alt="Apple Watch Red" />
+          <Image src="/apple-watch-red.png" alt="Apple Watch Red" />
         </div>
         <div className="footer-bg-asset footer-asset-5">
-          <img src="/apple-watch-green.png" alt="Apple Watch Green" />
+          <Image src="/apple-watch-green.png" alt="Apple Watch Green" />
         </div>
         <div className="footer-bg-asset footer-asset-6">
-          <img src="/iphone-blue.png" alt="iPhone Blue" />
+          <Image src="/iphone-blue.png" alt="iPhone Blue" />
         </div>
 
         {/* Central content */}
@@ -370,13 +370,13 @@ export default function HomePage() {
           {/* Social media icons */}
           <div className="footer-social">
             <Link href="#" className="social-icon footer-asset">
-              <img src="/tktok-icon.png" alt="WhatsApp" />
+              <Image src="/tktok-icon.png" alt="WhatsApp" />
             </Link>
             <Link href="#" className="social-icon footer-asset">
-              <img src="/facebook-icon.png" alt="Facebook" />
+              <Image src="/facebook-icon.png" alt="Facebook" />
             </Link>
             <Link href="#" className="social-icon footer-asset">
-              <img src="/instagram-icon.png" alt="Instagram" />
+              <Image src="/instagram-icon.png" alt="Instagram" />
             </Link>
             
           </div>

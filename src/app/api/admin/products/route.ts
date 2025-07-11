@@ -1,6 +1,13 @@
 import { redis } from '@/lib/redis';
 import { NextRequest, NextResponse } from 'next/server';
 
+
+type Product = {
+  id: number | string;
+  name: string;
+  price: number;
+  [key: string]: any; // Add other fields if needed
+};
 // ppost products to redis
 export const POST = async (req: NextRequest) => {
   try {
@@ -53,8 +60,8 @@ export const DELETE = async (req: NextRequest) => {
       );
     }
 
-    const products = JSON.parse(await redis.get('products') || '[]');
-    const index = products.findIndex((p: any) => p.id === id);
+    const products = JSON.parse(await redis.get('products') || '[]') as Product[];
+    const index = products.findIndex((p) => p.id === id);
 
     if (index === -1) {
       return NextResponse.json(

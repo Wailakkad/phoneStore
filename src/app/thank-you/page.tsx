@@ -53,7 +53,7 @@ export default function ThankYouPage() {
               <div className={styles.stepsList}>
                 <div className={styles.step}>
                   <span className={styles.stepNumber}>1</span>
-                  <span className={styles.stepText}>We'll review your order</span>
+                  <span className={styles.stepText}>We ll review your order</span>
                 </div>
                 <div className={styles.step}>
                   <span className={styles.stepNumber}>2</span>

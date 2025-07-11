@@ -4,6 +4,19 @@ import { useRouter } from "next/navigation"
 import { useCart } from "@/contexts/CartContext"
 import styles from './CheckoutPage.module.css'
 
+type CartItem = {
+  id: number | string;
+  name: string;
+  quantity: number;
+  price: number;
+};
+
+const { items, totalPrice, clearCart } = useCart() as {
+  items: CartItem[];
+  totalPrice: number;
+  clearCart: () => void;
+};
+
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart()
   const [form, setForm] = useState({ fullname: "", address: "", phone: "", notes: "" })
@@ -12,14 +25,14 @@ export default function CheckoutPage() {
 
   const handleChange = (e : any) => setForm({ ...form, [e.target.name]: e.target.value })
 
-  const handleSubmit = async (e : any) => {
-    e.preventDefault()
-    setLoading(true)
-    const res = await fetch("/api/admin/orders", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ customer: form, items, totalPrice }),
-    })
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setLoading(true);
+  const res = await fetch('/api/admin/orders', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ customer: form, items: items as CartItem[], totalPrice }),
+  });
     setLoading(false)
     if (res.ok) {
       clearCart()
