@@ -6,7 +6,8 @@ type Product = {
   id: number | string;
   name: string;
   price: number;
-  [key: string]: any; // Add other fields if needed
+  // If you need extra fields, use unknown instead of any:
+  [key: string]: unknown;
 };
 // ppost products to redis
 export const POST = async (req: NextRequest) => {

@@ -74,25 +74,26 @@ export default function HomePage() {
     const rightRotateValue = [30, 20, 35]
     const yValues = [100, -150, -400];
 
-    gsap.utils.toArray('.row').forEach((row : any, index) => {
-      const cardLeft = row.querySelector('.card-left');
-      const cardRight = row.querySelector('.card-right');
+  (gsap.utils.toArray('.row') as HTMLElement[]).forEach((row, index) => {
+  const cardLeft = row.querySelector('.card-left') as HTMLElement;
+  const cardRight = row.querySelector('.card-right') as HTMLElement;
 
-      gsap.to(cardLeft ,{
-        x : LeftXvalue[index],
-        scrollTrigger : {
-          trigger : ".main",
-          start : "top center",
-          end : "150% bottom",
-          scrub : true,
-          onUpdate : (self)=>{
-            const progress = self.progress;
-            cardLeft.style.transform = `translateX(${LeftXvalue[index] * progress}px) translateY(${yValues[index] * progress}px) rotate(${leftRotateValue[index] * progress}deg)`;
-            cardRight.style.transform = `translateX(${RightXvalue[index] * progress}px) translateY(${yValues[index] * progress}px) rotate(${rightRotateValue[index] * progress}deg)`;
-          }
-        }
-      })
-    })
+  gsap.to(cardLeft, {
+    x: LeftXvalue[index],
+    scrollTrigger: {
+      trigger: ".main",
+      start: "top center",
+      end: "150% bottom",
+      scrub: true,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        cardLeft.style.transform = `translateX(${LeftXvalue[index] * progress}px) translateY(${yValues[index] * progress}px) rotate(${leftRotateValue[index] * progress}deg)`;
+        cardRight.style.transform = `translateX(${RightXvalue[index] * progress}px) translateY(${yValues[index] * progress}px) rotate(${rightRotateValue[index] * progress}deg)`;
+      }
+    }
+  });
+});
+
 
     gsap.to(".logo" ,{
       scale : 1,
@@ -252,7 +253,7 @@ export default function HomePage() {
               </h1>
               <p className="hero-subtitle">
                 Shop the latest smartphones with exclusive discounts. 
-                Experience cutting-edge technology at prices that won't break the bank.
+                Experience cutting-edge technology at prices that won&apos;t break the bank.
               </p>
               <div className="hero-cta">
                 <button className="cta-button cta-pulse">

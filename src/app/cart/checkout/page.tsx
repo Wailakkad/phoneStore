@@ -11,19 +11,23 @@ type CartItem = {
   price: number;
 };
 
-const { items, totalPrice, clearCart } = useCart() as {
+
+
+export default function CheckoutPage() {
+  const { items, totalPrice, clearCart } = useCart() as {
   items: CartItem[];
   totalPrice: number;
   clearCart: () => void;
 };
-
-export default function CheckoutPage() {
-  const { items, totalPrice, clearCart } = useCart()
+  
   const [form, setForm] = useState({ fullname: "", address: "", phone: "", notes: "" })
   const [loading, setLoading] = useState(false)
   const router = useRouter()
 
-  const handleChange = (e : any) => setForm({ ...form, [e.target.name]: e.target.value })
+const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+) => setForm({ ...form, [e.target.name]: e.target.value });
+
 
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
