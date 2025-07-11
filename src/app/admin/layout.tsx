@@ -7,7 +7,6 @@ import {
   BarChart3,
   Settings,
   Menu,
-  X
 } from 'lucide-react'
 
 interface AdminLayoutProps {

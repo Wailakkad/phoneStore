@@ -226,10 +226,10 @@ export default function HomePage() {
       rows.push(
         <div className="row" key={i}>
           <div className='card card-left'>
-            <img src={`/img-${2 * i - 1}.jpg`} alt="" />
+            <Image src={`/img-${2 * i - 1}.jpg`} alt="" />
           </div>
           <div className='card card-right'>
-            <img src={`/img-${2 * i}.jpg`} alt="" />
+            <Image src={`/img-${2 * i}.jpg`} alt="" />
           </div>
         </div>
       )

@@ -404,7 +404,7 @@ const Interactive3DSectionComponent: React.FC = () => {
                     <path d="M7 15h10" stroke="currentColor" strokeWidth="2"/>
                   </svg>
                 </FeatureIcon>
-                <FeatureText>6.7" Super Retina XDR Display</FeatureText>
+                <FeatureText>6.7  Super Retina XDR Display</FeatureText>
               </FeatureItem>
             </InteractiveFeatures>
             

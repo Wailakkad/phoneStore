@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Plus, Edit2, Trash2, Package, AlertCircle, Loader2 } from 'lucide-react'
+import { Plus, Trash2, Package, AlertCircle, Loader2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './AllProducts.module.css'
@@ -68,7 +68,7 @@ export default function AllProducts() {
      }
 
      }catch (err) {
-
+             console.log("Error : " , err)
      }
   }
 

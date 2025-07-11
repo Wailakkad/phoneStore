@@ -17,12 +17,7 @@ interface FormErrors {
   description?: string;
 }
 
-// Custom Icons Components
-const ArrowLeftIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M19 12H5M12 19l-7-7 7-7"/>
-  </svg>
-);
+
 
 const PlusIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -200,10 +195,7 @@ const AddProductForm: React.FC = () => {
     }
   };
 
-  const handleBackClick = () => {
-    // In a real app, this would use React Router
-    window.history.back();
-  };
+ 
 
   return (
     <div className="admin-container">
