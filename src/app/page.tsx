@@ -5,6 +5,7 @@ import {useEffect} from 'react';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ReactLenis } from "lenis/react";
+import AIChat from '@/components/AIChat';
 import Interactive3DSectionComponent from '@/components/Spline';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -221,22 +222,34 @@ export default function HomePage() {
 
    } , [])
 
-  const generaterows = () => {
-    const rows = [];
-    for (let i = 1; i<=3; i++) {
-      rows.push(
-        <div className="row" key={i}>
-          <div className='card card-left'>
-            <Image src={`/img-${2 * i - 1}.jpg`} alt="" />
-          </div>
-          <div className='card card-right'>
-            <Image src={`/img-${2 * i}.jpg`} alt="" />
-          </div>
+ const generaterows = () => {
+  const rows = [];
+  for (let i = 1; i <= 3; i++) {
+    rows.push(
+      <div className="row" key={i}>
+        <div className='card card-left'>
+          <Image 
+            src={`/img-${2 * i - 1}.jpg`} 
+            alt={`Product ${2 * i - 1}`}
+            width={400}
+            height={300}
+            style={{ width: '100%', height: 'auto' }}
+          />
         </div>
-      )
-    }
-    return rows;
+        <div className='card card-right'>
+          <Image 
+            src={`/img-${2 * i}.jpg`} 
+            alt={`Product ${2 * i}`}
+            width={400}
+            height={300}
+            style={{ width: '100%', height: 'auto' }}
+          />
+        </div>
+      </div>
+    )
   }
+  return rows;
+}
 
   return (
     <>
@@ -341,24 +354,55 @@ export default function HomePage() {
         <div className="footer-blur-bg"></div>
         
         {/* Background assets for parallax */}
-        <div className="footer-bg-asset footer-asset-1">
-          <Image src="/headphones.png" alt="Headphones" />
-        </div>
-        <div className="footer-bg-asset footer-asset-2">
-          <Image src="/iphone-white.png" alt="iPhone White" />
-        </div>
-        <div className="footer-bg-asset footer-asset-3">
-          <Image src="/airpods.png" alt="AirPods" />
-        </div>
-        <div className="footer-bg-asset footer-asset-4">
-          <Image src="/apple-watch-red.png" alt="Apple Watch Red" />
-        </div>
-        <div className="footer-bg-asset footer-asset-5">
-          <Image src="/apple-watch-green.png" alt="Apple Watch Green" />
-        </div>
-        <div className="footer-bg-asset footer-asset-6">
-          <Image src="/iphone-blue.png" alt="iPhone Blue" />
-        </div>
+        {/* Background assets for parallax */}
+<div className="footer-bg-asset footer-asset-1">
+  <Image 
+    src="/headphones.png" 
+    alt="Headphones" 
+    width={120}
+    height={120}
+  />
+</div>
+<div className="footer-bg-asset footer-asset-2">
+  <Image 
+    src="/iphone-white.png" 
+    alt="iPhone White" 
+    width={100}
+    height={100}
+  />
+</div>
+<div className="footer-bg-asset footer-asset-3">
+  <Image 
+    src="/airpods.png" 
+    alt="AirPods" 
+    width={80}
+    height={80}
+  />
+</div>
+<div className="footer-bg-asset footer-asset-4">
+  <Image 
+    src="/apple-watch-red.png" 
+    alt="Apple Watch Red" 
+    width={90}
+    height={90}
+  />
+</div>
+<div className="footer-bg-asset footer-asset-5">
+  <Image 
+    src="/apple-watch-green.png" 
+    alt="Apple Watch Green" 
+    width={95}
+    height={95}
+  />
+</div>
+<div className="footer-bg-asset footer-asset-6">
+  <Image 
+    src="/iphone-blue.png" 
+    alt="iPhone Blue" 
+    width={110}
+    height={110}
+  />
+</div>
 
         {/* Central content */}
         <div className="footer-content">
@@ -368,19 +412,33 @@ export default function HomePage() {
             <p className="footer-subtitle">The products You Love</p>
           </div>
 
-          {/* Social media icons */}
-          <div className="footer-social">
-            <Link href="#" className="social-icon footer-asset">
-              <Image src="/tktok-icon.png" alt="WhatsApp" />
-            </Link>
-            <Link href="#" className="social-icon footer-asset">
-              <Image src="/facebook-icon.png" alt="Facebook" />
-            </Link>
-            <Link href="#" className="social-icon footer-asset">
-              <Image src="/instagram-icon.png" alt="Instagram" />
-            </Link>
-            
-          </div>
+         {/* Social media icons */}
+<div className="footer-social">
+  <Link href="#" className="social-icon footer-asset">
+    <Image 
+      src="/tktok-icon.png" 
+      alt="TikTok" 
+      width={30}
+      height={30}
+    />
+  </Link>
+  <Link href="#" className="social-icon footer-asset">
+    <Image 
+      src="/facebook-icon.png" 
+      alt="Facebook" 
+      width={30}
+      height={30}
+    />
+  </Link>
+  <Link href="#" className="social-icon footer-asset">
+    <Image 
+      src="/instagram-icon.png" 
+      alt="Instagram" 
+      width={30}
+      height={30}
+    />
+  </Link>
+</div>
           <div className='btnAction'>
             <Link href="/products">
                <button className='Actionbtn'>see All</button>
@@ -391,6 +449,13 @@ export default function HomePage() {
     
      </ReactLenis>
     <Interactive3DSectionComponent/>
+ <div className="chat-widget">
+  <AIChat 
+    apiKey={process.env.NEXT_PUBLIC_OPENROUTER_API_KEY || ''} 
+    siteUrl={process.env.NEXT_PUBLIC_SITE_URL}
+    siteName="BadarPhone"
+  />
+</div>
      
 
      {/* Enhanced Styles */}
