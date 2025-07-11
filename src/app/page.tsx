@@ -182,7 +182,7 @@ export default function HomePage() {
     );
 
     // Inverse parallax for background assets
-    gsap.utils.toArray('.footer-bg-asset').forEach((asset: any, index) => {
+(gsap.utils.toArray('.footer-bg-asset') as HTMLElement[]).forEach((asset, index) => {
       gsap.to(asset, {
         y: -30 * (index + 1),
         scrollTrigger: {
@@ -195,7 +195,7 @@ export default function HomePage() {
     });
 
     // Social icons hover animations
-    gsap.utils.toArray('.social-icon').forEach((icon: any) => {
+(gsap.utils.toArray('.social-icon') as HTMLElement[]).forEach((icon) => {
       icon.addEventListener('mouseenter', () => {
         gsap.to(icon, {
           scale: 1.1,
